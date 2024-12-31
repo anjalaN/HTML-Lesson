@@ -1,73 +1,135 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List</title>
+    <title>To Do List avec jQuery et Cookies</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        * {
+        /* Basic CSS pour styliser la liste */
+        *{
             margin: 0;
             padding: 0;
+        
         }
-
-        body {
+        body{
             background-image: url(todo.jpeg);
-            background-repeat: no-repeat;
-            background-position: right 520px bottom 10px;
-        }
+          
+            background-repeat: repeat-x;
 
-        .ft_list {
-            border: 4mm ridge rgba(218, 110, 233, 0.6);
+            background-color: rgb(108, 108, 221);
+        }
+        h1{
+            text-align: center;
+            color: rgb(61, 61, 243);
+            margin-bottom: 35px;
+            margin-top: 10px;
+        }
+        button{
+            margin-left: 420px;
+            margin-top: 30px;
+            background-color: rgb(145, 145, 234);
+            color: #fff;
+            width: 100px;
+            height: 40px;
+            border-radius: 10px;
+        }
+        .mytodo{
+            border: 5px dotted rgb(14, 47, 193);
             margin-left: 350px;
             margin-right: 350px;
-            height: 550px;
+            height:500px;
+            background-color: #fff;
+            margin-top: 0px;
+        
+        }
+        #ft_list {
+            list-style-type: none;
+            padding: 0;
+        }
+        #ft_list div {
+            padding: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 5px;
+            cursor: pointer;
+            margin-left: 120px;
+            margin-right: 120px;
         }
 
-        h1 {
-            text-align: center;
-            color: blueviolet;S
-        }
+        
 
-        #addButton, #deleteButton {
-            
-            margin-left:170px;
-            
-            margin-top: 20px;
-            width: 90px;
-            height: 40px;
-            color: #fff;
-            background-color: darkorchid;
-            border: none;
-            border-radius: 45px;
-        }
-
-        #todoContainer {
-            margin-left: 150px;
-            margin-top: 50px;
-        }
-
-        .folder {
-            border: thick double rgba(218, 110, 233, 0.6);
-            padding: 10px;
-            margin: 5px;
-            background-color: #f9f9f9;
-            width: 70%;
-        }
+        
     </style>
 </head>
-
 <body>
-    <div class="ft_list">
-        <h1>Todo List</h1>
-        <div id="todoContainer"></div>
-        <button id="addButton">Add List</button>
-        <button id="deleteButton">Delete Item</button>
+    <div class="mytodo">
+        <h1>To do list with jquery</h1>
+        <div id="ft_list"></div>
+        <button id="new_todo">Add new</button>
+
     </div>
 
-    <script src="todo.js">
-        
+   
+
+    <script>
+        $(document).ready(function() {
+            // Fonction pour ajouter une tâche
+            function addTask(todoText) {
+                $('#ft_list').prepend('<div>' + todoText + '</div>');
+                // Sauvegarde dans le cookie
+                saveToCookies();
+            }
+
+            // Fonction pour supprimer une tâche
+            $('#ft_list').on('click', 'div', function() {
+                $(this).remove();
+                // Sauvegarde dans le cookie
+                saveToCookies();
+            });
+
+            // Fonction pour sauver la liste dans un cookie
+            function saveToCookies() {
+                var tasks = [];
+                $('#ft_list div').each(function() {
+                    tasks.push($(this).text());
+                });
+                document.cookie = "tasks=" + JSON.stringify(tasks) + "; path=/";
+            }
+
+            // Fonction pour charger la liste depuis le cookie
+            function loadFromCookies() {
+                var cookies = document.cookie.split('; ');
+                var tasks = cookies.find(cookie => cookie.startsWith('tasks='));
+                if (tasks) {
+                    tasks = JSON.parse(tasks.split('=')[1]);
+                    tasks.forEach(task => addTask(task));
+                }
+            }
+
+            // Charger les tâches depuis le cookie à la page chargée
+            loadFromCookies();
+
+            // Ajout de nouvelles tâches
+            $('#new_todo').click(function() {
+                var todoText = prompt('Entrez la nouvelle tâche :');
+                if (todoText) {
+                    addTask(todoText);
+                }
+            });
+        });
     </script>
 </body>
 </html>
 
-   
+
+
+
+
+
+
+
+
+
+
+
