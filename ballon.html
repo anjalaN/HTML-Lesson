@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explode this balloon</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        
+    }
+    .ballon{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        border-radius: 50%;
+        transition: all 0.35 ease;
+        cursor: pointer;
+        margin-top: 50px;
+        margin-left: 100px;
+        padding: 25px 30px;
+    }
+</style>
+<body>
+    <div class="ballon" id="ballon"></div>
+
+
+    <script>
+        //get ballon element
+        const ballon = document.getElementById('ballon');
+
+        //inisialition size and color
+        let size = 200;
+        let colors = ["red","green", "blue",];
+        let colorIndex = 0;  
+
+        //handle ballon click grodi and changment color
+       ballon.addEventListener('click' ,()=>{
+        //initialise size
+        size += 10;
+        colorIndex += 1;
+        if ( colorIndex == 5)
+        {
+            colorIndex = 0
+        }
+        //size is explode 420px 
+        if(size > 420)
+       {
+            size = 200;
+            colorIndex = 0
+            ballon.style.backgroundColor = colors[colorIndex];
+       }
+       else {
+        //change color in the sequence
+        ballon.style.backgroundColor = colors[colorIndex];
+        //update baloon
+        ballon.style.width = size + 'px';
+        ballon.style.height = size + 'px';  
+       }
+    });
+
+    //hand mouse center
+    ballon.addEventListener('mouseenter', () => {
+        if(size > 200) {
+            size = 5;
+            ballon.style.width = size + 'px';
+            ballon.style.height = size +'px';
+             
+        }
+    });
+       
+</script>
+</body>
+</html>
