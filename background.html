@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change background</title>
+</head>
+<style>
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 15vh;
+  display: grid;
+  place-items: center;
+  background-color: #000000;
+}
+
+button {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4em;
+  padding: 1em 2em;
+  border-radius: 2em;
+  border: 5px solid #ffffff;
+  background-color: transparent;
+  color: #ffffff;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  outline: none;
+}
+</style>
+<body>
+
+<button id="btn" type="button" onclick="display()">Click Me</button>
+
+ <script>
+     const btn = document.getElementById("btn");
+      let randomNum = () => {
+  return Math.floor(Math.random() * 256);
+};
+      let changeColor = () => {
+      let randomColor = `rgb(${randomNum()},${randomNum()},${randomNum()})`;
+      document.body.style.backgroundColor = randomColor;
+};
+      btn.addEventListener("click", changeColor);
+      window.addEventListener("load", changeColor);
+
+function display() {
+      document.getElementById("btn").style.width = "350px";
+      document.getElementById("btn").style.height ="150px";
+}   
+</script>   
+</body>
+</html>
