@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+  background-color: #bfbdd4;   
+}
+h1{
+    text-align: center;
+    color: rgb(77, 77, 231);
+    margin-bottom: 50px;
+}
+.calculatruse{
+    margin-top: 50px;
+    margin-left: 450px;
+    margin-right: 460px;
+    border: thick double #1d0ebe;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 50%;
+    height: 4rem;
+}
+#num1, #num2 {
+    margin-left: 80px;
+    margin: 40px 40px;
+ 
+    margin-top: 20px;
+}
+
+#result{
+    margin-top: 50px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    color: #1d0ebe;
+}

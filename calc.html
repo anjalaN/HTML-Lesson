@@ -3,46 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>It’s over 9000</title>
+    <!-- Include css -->
+    <link rel="stylesheet" type="text/css" href="cal.css">
+    <title>Calculator</title>
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   
+   
+  
 </head>
-<style>
-    *{
-        margin: 0;
-        padding: 0;
-    }
-    body{
-        background-color: beige;
-        font-family: 'Courier New', Courier, monospace;
-        font-size: calc(3rem);
-    }
-    .calculatrise{
-        width: 100vw;
-        height: 5vh;
-        background-color: beige;
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-    }
-    h1{
-        font-size: calc(2rem);
-        text-align: center;
-        height: 5vh;
-        margin-top: 10rem;
-        margin-bottom: 3rem;
-    }
-    #resultat{    
-        margin-top: -1px;
-        font-size: 12px;
-        border: 4px dotted rgb(117, 70, 206);
-        padding: 15px 20px;
-    }
-
-</style>
 <body>
-    <h1>It’s over 9000</h1>
-    <div class="calculatrise">
-        <input type="name" id="num1" placeholder="Enter first number"/>
-        <input type="name" id="num2" placeholder="Enter second number"/>
+  <h1>Calculatruse with jquery</h1>
+    <!-- Calculator form -->
+    <div class="calculatruse">
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
         <select id="operator">
             <option value="+">+</option>
             <option value="-">-</option>
@@ -50,74 +25,14 @@
             <option value="/">/</option>
             <option value="%">%</option>
         </select>
-        <button id = "calculate_button" >Calcule</button>
-       <p id="resultat"></p>
+        <button id="calculate_button">Calculate</button>
+        <p id="result"></p>
     </div>
-    
-<script>
-    //function to doing the calculation
-    button_calculate = document.getElementById("calculate_button");
-    const num1 = document.getElementById("num1");
-    const num2 = document.getElementById("num2");
-    button_calculate.addEventListener("click", (event) => {calculate()})
-    function calculate () {
-        let valuenum1 = parseFloat(num1.value);
-        let valuenum2 = parseFloat(num2.value);
-        let result = "";
-        console.log(valuenum1)
-        console.log(valuenum2)
-        const operator = document.getElementById('operator').value;
-        console.log(operator)
-        const resultElement = document.getElementById('resultat');
 
-        if (isNaN(valuenum1) || isNaN(valuenum2)) {
-            alert("Please enter valid number");
-            return;
-        }
-      
-        switch(operator) {
-        case "+":
-            result = valuenum1 + valuenum2;
-            break;
-        case "-":
-            result = valuenum1 - valuenum2;
-            break;
-        case "*":
-            result = valuenum1 * valuenum2;
-            break;
-        case "/":
-        if(valuenum2 === 0) {
-            alert("’Error division by 0 is not allowd");
-        }
-            result = valuenum1/valuenum2;
-            break;
-        case "%":
-            if(valuenum2 === 0) {
-                alert("Its over 9000!");
-            }
-            result = valuenum1 % valuenum2;
-            break;
-        default:
-            alert("invalide operator");
-            
-        //handle special condition
-        if(result < 0) {
-            const errorMessege ="error this negative number";
-            console.error(errorMessege);
-            alert(errorMessege);
-            resultElement.innerText = "error negative number";
-        }
-        if(result > 9000) {
-            alert("Its over 9000");
-        }     
-    }
-    // display resulta
-    const resultMessage = `Result: ${result}`;
-        alert(resultMessage);
-        console.log("dernier console ",resultMessage);
-        resultElement.innerText = resultMessage;
-    }
+    <script src="cal_jqurry.js">
+        
+    </script>   
+
     
-</script>
 </body>
 </html>
