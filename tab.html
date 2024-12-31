@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        font-family: 'Courier New', Courier, monospaceS;
+    }
+    h1{
+        text-align: center;
+        margin-top: 20px;
+        color: black;
+    }
+    table{
+        width: 100%;
+        margin: 50px auto;
+        border-collapse: collapse;
+    }
+    th, td{
+        padding: 150px;
+        text-align: center;
+        border: thick double #32a1ce;
+    }
+    .table-row{
+        display: flex;
+        justify-content: center;
+        overflow: auto;
+        
+    }
+    .box{
+        width: 100%;
+        height: 100px;
+    }
+
+    .box-box1{
+        background-color: #32a1ce;
+    }
+    .box-box2{
+        background-color: rgb(143, 45, 235);
+    }
+</style>
+<body>
+    
+    
+    <table>
+        <tr class="table-row">
+            <div class="box">
+                <td class="box-box1">
+                    Blue cell
+                </td> 
+                <td class="box-box2">
+                    white cell
+                </td>
+            </div>
+            
+        </tr>
+    </table>
+    
+</body>
+</html>
