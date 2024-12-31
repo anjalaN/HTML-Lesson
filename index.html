@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url(todo.jpeg);
+            background-repeat: no-repeat;
+            background-position: right 520px bottom 10px;
+        }
+
+        .ft_list {
+            border: 4mm ridge rgba(218, 110, 233, 0.6);
+            margin-left: 350px;
+            margin-right: 350px;
+            height: 550px;
+        }
+
+        h1 {
+            text-align: center;
+            color: blueviolet;S
+        }
+
+        #addButton, #deleteButton {
+            
+            margin-left:170px;
+            
+            margin-top: 20px;
+            width: 90px;
+            height: 40px;
+            color: #fff;
+            background-color: darkorchid;
+            border: none;
+            border-radius: 45px;
+        }
+
+        #todoContainer {
+            margin-left: 150px;
+            margin-top: 50px;
+        }
+
+        .folder {
+            border: thick double rgba(218, 110, 233, 0.6);
+            padding: 10px;
+            margin: 5px;
+            background-color: #f9f9f9;
+            width: 70%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ft_list">
+        <h1>Todo List</h1>
+        <div id="todoContainer"></div>
+        <button id="addButton">Add List</button>
+        <button id="deleteButton">Delete Item</button>
+    </div>
+
+    <script src="todo.js">
+        
+    </script>
+</body>
+</html>
+
+   
